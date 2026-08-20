@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Carbonneta</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; background: oklch(0.16 0.008 260); height: 100%; }
+  body {
+    font-family: 'Space Grotesk', Helvetica, sans-serif;
+    color: oklch(0.93 0.005 260);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+  a { color: oklch(0.72 0.16 25); text-decoration: none; }
+  ::selection { background: oklch(0.62 0.2 25); color: oklch(0.97 0.004 260); }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+
+  @keyframes cnRise {
+    0%   { transform: translate3d(0, 0, 0) scale(0.9); opacity: 0; }
+    12%  { opacity: 1; }
+    50%  { transform: translate3d(28px, -60vh, 0) scale(1.05); }
+    88%  { opacity: 1; }
+    100% { transform: translate3d(-16px, -125vh, 0) scale(1.15); opacity: 0; }
+  }
+  .bubbles { position: fixed; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
+  .bubbles div { position: absolute; bottom: -14vh; border-radius: 50%; }
+
+  .nav-link { color: oklch(0.68 0.01 260); }
+  .nav-link:hover { color: oklch(0.93 0.005 260); }
+
+  .btn-sileo { background: oklch(0.55 0.2 25); }
+  .btn-sileo:hover { background: oklch(0.61 0.2 25); }
+
+  .btn-cydia { background: oklch(0.26 0.008 260); border: 1px solid oklch(0.34 0.01 260); }
+  .btn-cydia:hover { background: oklch(0.3 0.008 260); }
+
+  .btn-copy { background: oklch(0.24 0.008 260); }
+  .btn-copy:hover { background: oklch(0.3 0.008 260); }
+
+  .pkg-card { border: 1px solid oklch(0.28 0.01 260); }
+  .pkg-card:hover { border-color: oklch(0.4 0.03 25); }
+
+  @media (max-width: 560px) {
+    .hero { flex-direction: column; align-items: flex-start !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="bubbles" aria-hidden="true">
+  <div style="left:6%;  width:34px; height:34px; border:1px solid oklch(0.72 0.16 25 / 0.200); background:radial-gradient(circle at 32% 28%, oklch(0.72 0.16 25 / 0.110), oklch(0.72 0.16 25 / 0) 70%); animation: cnRise 92s linear -168s infinite;"></div>
+  <div style="left:18%; width:27px; height:27px; border:1px solid oklch(0.72 0.16 25 / 0.160); background:radial-gradient(circle at 32% 28%, oklch(0.72 0.16 25 / 0.088), oklch(0.72 0.16 25 / 0) 70%); animation: cnRise 78s linear -96s infinite;"></div>
+  <div style="left:31%; width:41px; height:41px; border:1px solid oklch(0.72 0.16 25 / 0.220); background:radial-gradient(circle at 32% 28%, oklch(0.72 0.16 25 / 0.121), oklch(0.72 0.16 25 / 0) 70%); animation: cnRise 105s linear -210s infinite;"></div>
+  <div style="left:44%; width:22px; height:22px; border:1px solid oklch(0.72 0.16 25 / 0.140); background:radial-gradient(circle at 32% 28%, oklch(0.72 0.16 25 / 0.077), oklch(0.72 0.16 25 / 0) 70%); animation: cnRise 86s linear -132s infinite;"></div>
+  <div style="left:57%; width:36px; height:36px; border:1px solid oklch(0.72 0.16 25 / 0.200); background:radial-gradient(circle at 32% 28%, oklch(0.72 0.16 25 / 0.110), oklch(0.72 0.16 25 / 0) 70%); animation: cnRise 99s linear -176s infinite;"></div>
+  <div style="left:70%; width:25px; height:25px; border:1px solid oklch(0.72 0.16 25 / 0.160); background:radial-gradient(circle at 32% 28%, oklch(0.72 0.16 25 / 0.088), oklch(0.72 0.16 25 / 0) 70%); animation: cnRise 81s linear -108s infinite;"></div>
+  <div style="left:83%; width:46px; height:46px; border:1px solid oklch(0.72 0.16 25 / 0.240); background:radial-gradient(circle at 32% 28%, oklch(0.72 0.16 25 / 0.132), oklch(0.72 0.16 25 / 0) 70%); animation: cnRise 112s linear -244s infinite;"></div>
+  <div style="left:93%; width:20px; height:20px; border:1px solid oklch(0.72 0.16 25 / 0.120); background:radial-gradient(circle at 32% 28%, oklch(0.72 0.16 25 / 0.066), oklch(0.72 0.16 25 / 0) 70%); animation: cnRise 74s linear -150s infinite;"></div>
+  <div style="left:12%; width:52px; height:52px; border:1px solid oklch(0.72 0.16 25 / 0.180); background:radial-gradient(circle at 32% 28%, oklch(0.72 0.16 25 / 0.099), oklch(0.72 0.16 25 / 0) 70%); animation: cnRise 118s linear -60s infinite;"></div>
+  <div style="left:64%; width:58px; height:58px; border:1px solid oklch(0.72 0.16 25 / 0.160); background:radial-gradient(circle at 32% 28%, oklch(0.72 0.16 25 / 0.088), oklch(0.72 0.16 25 / 0) 70%); animation: cnRise 124s linear -18s infinite;"></div>
+  <div style="left:38%; width:16px; height:16px; border:1px solid oklch(0.72 0.16 25 / 0.120); background:radial-gradient(circle at 32% 28%, oklch(0.72 0.16 25 / 0.066), oklch(0.72 0.16 25 / 0) 70%); animation: cnRise 70s linear -268s infinite;"></div>
+  <div style="left:76%; width:30px; height:30px; border:1px solid oklch(0.72 0.16 25 / 0.200); background:radial-gradient(circle at 32% 28%, oklch(0.72 0.16 25 / 0.110), oklch(0.72 0.16 25 / 0) 70%); animation: cnRise 96s linear -200s infinite;"></div>
+</div>
+
+<div style="position: relative; z-index: 1; width: 100%; border-bottom: 1px solid oklch(0.24 0.01 260); background: oklch(0.18 0.008 260 / 0.88); backdrop-filter: blur(8px);">
+  <div style="max-width: 880px; margin: 0 auto; padding: 16px 32px; display: flex; align-items: center; justify-content: space-between; gap: 24px; box-sizing: border-box;">
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <div style="position: relative; width: 30px; height: 30px; border-radius: 8px; background: oklch(0.93 0.005 260); overflow: hidden; display: flex; align-items: center; justify-content: center; flex: 0 0 auto;">
+        <div style="position: absolute; inset: 0; background: repeating-linear-gradient(-45deg, oklch(0.87 0.005 260) 0 2px, transparent 2px 7px);"></div>
+        <div class="mono" style="position: relative; font-size: 15px; font-weight: 700; line-height: 1; color: oklch(0.19 0.008 260); letter-spacing: -0.07em;">Cn</div>
+        <div style="position: absolute; left: 6px; right: 6px; bottom: 7px; height: 2px; background: oklch(0.55 0.2 25);"></div>
+      </div>
+      <div class="mono" style="font-size: 14px; font-weight: 700; letter-spacing: -0.01em;">carbonneta</div>
+    </div>
+    <div class="mono" style="display: flex; align-items: center; gap: 22px; font-size: 12px; letter-spacing: 0.06em;">
+      <a class="nav-link" href="#packages">packages</a>
+      <a class="nav-link" href="#install">install</a>
+      <a class="nav-link" href="https://github.com/mucilaginous/carbonneta">github</a>
+    </div>
+  </div>
+</div>
+
+<div style="position: relative; z-index: 1; width: 100%; max-width: 880px; padding: 0 32px 96px; box-sizing: border-box;">
+
+  <div class="hero" style="display: flex; align-items: flex-start; gap: 36px; padding: 72px 0 56px; border-bottom: 1px solid oklch(0.24 0.01 260);">
+    <div style="position: relative; width: 116px; height: 116px; border-radius: 26px; background: oklch(0.93 0.005 260); overflow: hidden; display: flex; align-items: center; justify-content: center; flex: 0 0 auto;">
+      <div style="position: absolute; inset: 0; background: repeating-linear-gradient(-45deg, oklch(0.87 0.005 260) 0 3px, transparent 3px 11px);"></div>
+      <div class="mono" style="position: relative; font-size: 58px; font-weight: 700; line-height: 1; color: oklch(0.19 0.008 260); letter-spacing: -0.07em;">Cn</div>
+      <div style="position: absolute; left: 21px; right: 21px; bottom: 27px; height: 6px; background: oklch(0.55 0.2 25);"></div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 16px; padding-top: 4px;">
+      <div style="font-size: 52px; font-weight: 700; letter-spacing: -0.03em; line-height: 1;">Carbonneta</div>
+      <div style="font-size: 18px; line-height: 1.55; color: oklch(0.74 0.01 260); max-width: 460px;">A personal repository of jailbreak tweaks for Sileo and Cydia. Small, focused, and built to stay out of your way.</div>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px;">
+        <div class="mono" style="font-size: 11px; letter-spacing: 0.06em; padding: 6px 10px; border: 1px solid oklch(0.3 0.01 260); border-radius: 3px; color: oklch(0.74 0.01 260);">iOS 13+</div>
+        <div class="mono" style="font-size: 11px; letter-spacing: 0.06em; padding: 6px 10px; border: 1px solid oklch(0.3 0.01 260); border-radius: 3px; color: oklch(0.74 0.01 260);">rootful</div>
+        <div class="mono" style="font-size: 11px; letter-spacing: 0.06em; padding: 6px 10px; border: 1px solid oklch(0.3 0.01 260); border-radius: 3px; color: oklch(0.74 0.01 260);">arm64e</div>
+        <div class="mono" style="font-size: 11px; letter-spacing: 0.06em; padding: 6px 10px; border: 1px solid oklch(0.3 0.01 260); border-radius: 3px; color: oklch(0.74 0.01 260);">checkra1n · Odyssey · unc0ver</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="install" style="display: flex; flex-direction: column; gap: 20px; padding: 44px 0 48px; border-bottom: 1px solid oklch(0.24 0.01 260);">
+    <div class="mono" style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: oklch(0.58 0.01 260);">Add the repo</div>
+    <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+      <a id="sileoLink" class="btn-sileo" href="#" style="display: flex; align-items: center; gap: 10px; padding: 13px 20px; border-radius: 4px; color: oklch(0.98 0.004 260); font-size: 15px; font-weight: 500;">
+        <span>Add to Sileo</span>
+        <span class="mono" style="font-size: 13px; opacity: 0.75;">&#8599;</span>
+      </a>
+      <a id="cydiaLink" class="btn-cydia" href="#" style="display: flex; align-items: center; gap: 10px; padding: 13px 20px; border-radius: 4px; color: oklch(0.93 0.005 260); font-size: 15px; font-weight: 500;">
+        <span>Add to Cydia</span>
+        <span class="mono" style="font-size: 13px; opacity: 0.6;">&#8599;</span>
+      </a>
+      <a id="zebraLink" class="btn-cydia" href="#" style="display: flex; align-items: center; gap: 10px; padding: 13px 20px; border-radius: 4px; color: oklch(0.93 0.005 260); font-size: 15px; font-weight: 500;">
+        <span>Add to Zebra</span>
+        <span class="mono" style="font-size: 13px; opacity: 0.6;">&#8599;</span>
+      </a>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 4px;">
+      <div style="font-size: 13px; color: oklch(0.62 0.01 260);">Or add it by hand — Sources &rarr; Edit &rarr; Add:</div>
+      <div style="display: flex; align-items: stretch; gap: 0; max-width: 520px; border: 1px solid oklch(0.3 0.01 260); border-radius: 4px; overflow: hidden; background: oklch(0.2 0.008 260);">
+        <div id="repoUrlText" class="mono" style="flex: 1 1 auto; padding: 13px 14px; font-size: 13px; color: oklch(0.86 0.005 260); overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">https://mucilaginous.github.io/carbonneta/</div>
+        <button id="copyBtn" class="mono btn-copy" style="border: none; border-left: 1px solid oklch(0.3 0.01 260); color: oklch(0.86 0.005 260); font-size: 12px; letter-spacing: 0.08em; padding: 0 18px; cursor: pointer;">copy</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="packages" style="display: flex; flex-direction: column; gap: 18px; padding: 44px 0 48px; border-bottom: 1px solid oklch(0.24 0.01 260);">
+    <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 16px;">
+      <div class="mono" style="font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: oklch(0.58 0.01 260);">Packages</div>
+      <div class="mono" style="font-size: 11px; letter-spacing: 0.06em; color: oklch(0.5 0.01 260);">1 available</div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 10px;">
+      <div class="pkg-card" style="display: flex; align-items: center; gap: 18px; padding: 20px; border-radius: 5px; background: oklch(0.2 0.008 260);">
+        <div style="position: relative; width: 52px; height: 52px; border-radius: 12px; background: oklch(0.26 0.008 260); overflow: hidden; display: flex; align-items: center; justify-content: center; flex: 0 0 auto;">
+          <img src="icons/airca.png" alt="Airca" width="52" height="52" style="display: block; width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 5px; flex: 1 1 auto; min-width: 0;">
+          <div style="display: flex; align-items: baseline; gap: 10px;">
+            <div style="font-size: 18px; font-weight: 500;">Airca</div>
+            <div id="pkgVersion" class="mono" style="font-size: 12px; color: oklch(0.72 0.16 25);">0.8.4</div>
+          </div>
+          <div style="font-size: 14px; line-height: 1.5; color: oklch(0.7 0.01 260);">AirPods-style connection popup for every Bluetooth device.</div>
+        </div>
+        <div class="mono" style="font-size: 11px; letter-spacing: 0.08em; color: oklch(0.6 0.01 260); padding: 8px 12px; border: 1px solid oklch(0.32 0.01 260); border-radius: 3px; flex: 0 0 auto;">iOS 13+</div>
+      </div>
+    </div>
+
+    <div class="mono" style="font-size: 13px; color: oklch(0.55 0.01 260); letter-spacing: 0.04em;">more soon — updates land here first</div>
+  </div>
+
+  <div style="display: flex; flex-wrap: wrap; gap: 40px; padding: 44px 0 0;">
+    <div style="display: flex; flex-direction: column; gap: 6px; min-width: 180px;">
+      <div class="mono" style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: oklch(0.5 0.01 260);">Maintainer</div>
+      <div style="font-size: 15px; color: oklch(0.82 0.005 260);">Aidan Young</div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 6px; min-width: 180px;">
+      <div class="mono" style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: oklch(0.5 0.01 260);">Compatibility</div>
+      <div style="font-size: 15px; color: oklch(0.82 0.005 260);">iOS 13+, rootful jailbreaks</div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 6px; min-width: 180px;">
+      <div class="mono" style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: oklch(0.5 0.01 260);">Issues</div>
+      <div style="font-size: 15px;"><a href="https://github.com/mucilaginous/carbonneta/issues">Report on GitHub</a></div>
+    </div>
+  </div>
+
+</div>
+
+<div style="position: relative; z-index: 1; width: 100%; border-top: 1px solid oklch(0.24 0.01 260); background: oklch(0.18 0.008 260 / 0.9); margin-top: auto;">
+  <div class="mono" style="max-width: 880px; margin: 0 auto; padding: 22px 32px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; font-size: 11px; letter-spacing: 0.06em; color: oklch(0.52 0.01 260); box-sizing: border-box;">
+    <div>carbonneta &middot; unofficial &middot; not affiliated with Apple</div>
+    <div id="repoUrlFooter">https://mucilaginous.github.io/carbonneta/</div>
+  </div>
+</div>
+
+<script>
+  var repoUrl = "https://mucilaginous.github.io/carbonneta/";
+  document.getElementById("sileoLink").href = "sileo://source/" + repoUrl;
+  document.getElementById("cydiaLink").href = "cydia://url/https://cydia.saurik.com/api/repotag?argument=" + repoUrl;
+  document.getElementById("zebraLink").href = "zbra://sources/add/" + repoUrl;
+
+  var copyBtn = document.getElementById("copyBtn");
+  copyBtn.addEventListener("click", function () {
+    (navigator.clipboard ? navigator.clipboard.writeText(repoUrl) : Promise.reject()).catch(function () {}).then(function () {
+      copyBtn.textContent = "copied";
+      setTimeout(function () { copyBtn.textContent = "copy"; }, 1600);
+    });
+  });
+</script>
+
+</body>
+</html>

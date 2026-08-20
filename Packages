@@ -1,0 +1,17 @@
+Package: me.aidanyoung.airca
+Name: Airca
+Description: AirPods-style connection popup for every Bluetooth device.
+Maintainer: Aidan Young <hello@albasols.co.uk>
+Author: Aidan Young <hello@albasols.co.uk>
+Section: Tweaks
+Icon: file:///Library/Airca/icon.png
+Depends: mobilesubstrate (>= 0.9.5000), firmware (>= 13.0), preferenceloader
+Tag: purpose::extension
+Architecture: iphoneos-arm
+Version: 0.8.4
+Installed-Size: 912
+Filename: ./me.aidanyoung.airca_0.8.4_iphoneos-arm.deb
+Size: 380802
+MD5sum: 9027317ef921d18063ae62c44317092b
+SHA1: c71b55bfc5d9e20d684c5bbc3816c8ddb8b65c47
+SHA256: c07821886ed28b063a7fa08fc4b6293898d1a4a0a7cff3f1b8d1184ebdf9e9ef
